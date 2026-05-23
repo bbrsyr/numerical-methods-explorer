@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.19)
 project(NumericalMethodsExplorer LANGUAGES CXX)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets LinguistTools Charts)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets LinguistTools Charts)
 
 qt_standard_project_setup()
 
