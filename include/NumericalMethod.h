@@ -1,7 +1,4 @@
-#ifndef NUMERICALMETHOD_H
-#define NUMERICALMETHOD_H
-
-#endif // NUMERICALMETHOD_H
+#pragma once
 
 #include "IterationData.h"
 

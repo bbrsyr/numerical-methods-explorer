@@ -5,7 +5,9 @@
 #include <QTranslator>
 #include <iostream>
 
+#include "../include/PlotWidget.h"
 #include "../include/NewtonMethod.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -38,6 +40,9 @@ int main(int argc, char *argv[])
                   << "  Error: "<<state.error << std::endl;
 
     }
+    PlotWidget p;
+    p.plotFunction(evaluator, -10, 10,  0.1);
+
     MainWindow w;
     w.show();
     return QCoreApplication::exec();

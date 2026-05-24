@@ -23,6 +23,7 @@ qt_add_executable(NumericalMethodsExplorer
 
     math/NewtonMethod.cpp
     math/FunctionEvaluator.cpp
+    src/PlotWidget.cpp
 
 )
 

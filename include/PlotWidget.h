@@ -1,16 +1,15 @@
-#ifndef PLOTWIDGET_H
-#define PLOTWIDGET_H
-
 #pragma once
 
-#include <QtCharts/QChartView>
+
+#include <QChartView>
+#include "FunctionEvaluator.h"
 
 
-class PlotWidget : public QtCharts/QChartView {
+
+class PlotWidget : public QChartView {
 public :
     PlotWidget(QWidget* parent = nullptr);
 
-    void plotFunction();
+    void plotFunction(FunctionEvaluator& f, double start, double end, double step);
 };
 
-#endif // PLOTWIDGET_H

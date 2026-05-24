@@ -1,7 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
 #pragma once
+
 
 #include <QMainWindow>
 
@@ -20,4 +18,4 @@ public:
 private:
     Ui::MainWindow *ui;
 };
-#endif // MAINWINDOW_H
+

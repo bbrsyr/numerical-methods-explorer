@@ -1,5 +1,4 @@
-#ifndef NEWTONMETHOD_H
-#define NEWTONMETHOD_H
+#pragma once
 
 
 #include "NumericalMethod.h"
@@ -29,7 +28,7 @@ public:
     ~NewtonMethod() override = default;
 
     const std::vector<IterationData>& getHistory() const;
+
 };
 
 
-#endif // NEWTONMETHOD_H

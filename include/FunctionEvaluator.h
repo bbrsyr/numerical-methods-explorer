@@ -1,7 +1,4 @@
-#ifndef FUNCTIONEVALUATOR_H
-#define FUNCTIONEVALUATOR_H
-
-#endif // FUNCTIONEVALUATOR_H
+#pragma once
 
 #include <string>
 #include <muParser.h>

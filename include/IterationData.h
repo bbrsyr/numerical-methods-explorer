@@ -1,7 +1,4 @@
-#ifndef ITERATIONDATA_H
-#define ITERATIONDATA_H
-
-#endif // ITERATIONDATA_H
+#pragma once
 
 
 struct IterationData {
