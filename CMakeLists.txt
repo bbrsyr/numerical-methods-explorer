@@ -26,6 +26,9 @@ qt_add_executable(NumericalMethodsExplorer
     src/PlotWidget.cpp
     include/GradientDescent.h
     math/GradientDescent.cpp
+    include/Vec.h
+    include/Matrix.h
+    src/Vec.cpp
 
 
 )
