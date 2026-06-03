@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
     GradientDescent gd(&evaluator, 1.5);
 
-    std::cout << std::endl << "Newton's Method";
+    std::cout << std::endl << "Newton's Method" << std::endl;
 
     while(!newt.converged()) {
         newt.step();
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
     }
 
-    std::cout << std::endl << "Gradient Descent";
+    std::cout << std::endl << "Gradient Descent" << std::endl;
 
     while(!gd.converged()) {
         gd.step();

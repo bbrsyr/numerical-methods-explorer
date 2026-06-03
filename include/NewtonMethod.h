@@ -4,7 +4,7 @@
 #include "NumericalMethod.h"
 #include "FunctionEvaluator.h"
 
-class NewtonMethod :  NumericalMethod{
+class NewtonMethod : public NumericalMethod{
 private:
     std::unique_ptr<FunctionEvaluator> function;
 

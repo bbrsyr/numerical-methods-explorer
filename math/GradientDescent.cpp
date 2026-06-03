@@ -1,6 +1,6 @@
 #include "../include/GradientDescent.h"
 
-GradientDescent::GradientDescent(FunctionEvaluator* function,
+GradientDescent::GradientDescent(std::unique_ptr<FunctionEvaluator> function,
                                  double initialGuess,
                                  double learningRate,
                                  double tolerance,
@@ -23,10 +23,6 @@ void GradientDescent::step() {
     double nabla_fx = function->derivative(x);
 
     state.derivative = nabla_fx;
-
-    if (std::abs(nabla_fx) < 1e-10) {
-        return;
-    }
 
     double next_x = x - (learningRate * nabla_fx);
 

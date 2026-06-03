@@ -5,7 +5,7 @@
 #include "../include/FunctionEvaluator.h"
 
 
-class GradientDescent : NumericalMethod {
+class GradientDescent : public NumericalMethod {
 private:
     std::unique_ptr<FunctionEvaluator> function;
 
@@ -23,7 +23,7 @@ private:
 
 public:
     GradientDescent(
-        FunctionEvaluator* function,
+        std::unique_ptr<FunctionEvaluator> function,
         double initialGuess,
         double learningRate = 0.01,
         double tolerance = 1e-6,

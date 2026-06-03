@@ -29,6 +29,7 @@ qt_add_executable(NumericalMethodsExplorer
     include/Vec.h
     include/Matrix.h
     src/Vec.cpp
+    src/Matrix.cpp
 
 
 )
