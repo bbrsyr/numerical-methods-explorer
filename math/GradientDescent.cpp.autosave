@@ -1,4 +1,0 @@
-#include "../include/GradientDescent.h"
-
-GradientDescent::GradientDescent(FunctionEvaluator* function,
-                                 double initialGuess, double )

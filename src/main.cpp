@@ -7,6 +7,7 @@
 
 #include "../include/PlotWidget.h"
 #include "../include/NewtonMethod.h"
+#include "../include/GradientDescent.h"
 
 
 int main(int argc, char *argv[])
@@ -29,6 +30,10 @@ int main(int argc, char *argv[])
 
     NewtonMethod newt(&evaluator, 1);
 
+    GradientDescent gd(&evaluator, 1.5);
+
+    std::cout << std::endl << "Newton's Method";
+
     while(!newt.converged()) {
         newt.step();
 
@@ -40,8 +45,19 @@ int main(int argc, char *argv[])
                   << "  Error: "<<state.error << std::endl;
 
     }
-    PlotWidget p;
-    p.plotFunction(evaluator, -10, 10,  0.1);
+
+    std::cout << std::endl << "Gradient Descent";
+
+    while(!gd.converged()) {
+        gd.step();
+
+        auto state = gd.currentState();
+
+        std::cout << "Iteration: " << state.iteration
+                  << "  x: " << state.x
+                  << "  f(x): " <<state.fx
+                  << "  Error: "<<state.error << std::endl;
+    }
 
     MainWindow w;
     w.show();
