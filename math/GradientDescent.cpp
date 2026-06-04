@@ -1,11 +1,11 @@
 #include "../include/GradientDescent.h"
 
-GradientDescent::GradientDescent(std::unique_ptr<FunctionEvaluator> function,
+GradientDescent::GradientDescent(FunctionEvaluator* function,
                                  double initialGuess,
                                  double learningRate,
                                  double tolerance,
                                  int maxIterations)
-                                : function(std::move(function)),
+                                : function(function),
                                 learningRate(learningRate),
                                 tolerance(tolerance),
                                 maxIterations(maxIterations){

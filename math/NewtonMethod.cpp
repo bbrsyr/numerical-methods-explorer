@@ -3,7 +3,7 @@
 NewtonMethod::NewtonMethod(FunctionEvaluator* function,
                            double initialGuess,
                            double tolerance)
-                            : function(function), tolerance(tolerance){
+                            : function(std::move(function)), tolerance(tolerance){
     state.iteration = 0;
     state.x = initialGuess;
     state.fx = function->evaluate(initialGuess);

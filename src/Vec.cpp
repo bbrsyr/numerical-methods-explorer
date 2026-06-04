@@ -42,11 +42,11 @@ Vec Vec::operator+(const Vec& v) const {
 
     std::vector<double> result(v.size());
 
-    for (int i = 0; i < size(); i++) {
+    for (size_t i = 0; i < size(); i++) {
         result[i] = data[i] + v[i];
     }
 
-    return result;
+    return Vec(result);
 
 }
 Vec Vec::operator-(const Vec& v) const {
@@ -56,11 +56,20 @@ Vec Vec::operator-(const Vec& v) const {
 
     std::vector<double> result(v.size());
 
-    for (int i = 0; i < size(); i++) {
+    for (size_t i = 0; i < size(); i++) {
         result[i] = data[i] - v[i];
     }
 
-    return result;
+    return Vec(result);
+}
+
+Vec Vec::operator*(double scalar) const {
+    std::vector<double> result(size());
+
+    for (size_t i = 0; i < size(); i++) {
+        result[i] = scalar * data[i];
+    }
+    return Vec(result);
 }
  Vec operator*(double scalar, const Vec& v) {
      return v * scalar;
