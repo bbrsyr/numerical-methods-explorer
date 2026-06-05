@@ -10,6 +10,8 @@ private:
 
     double xValue;
 
+    static constexpr double h = 1e-6;
+
 public:
     FunctionEvaluator();
 

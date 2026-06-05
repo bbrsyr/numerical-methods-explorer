@@ -2,8 +2,9 @@
 
 NewtonMethod::NewtonMethod(FunctionEvaluator* function,
                            double initialGuess,
-                           double tolerance)
-                            : function(std::move(function)), tolerance(tolerance){
+                           double tolerance,
+                           int maxIterations)
+    : function(function), tolerance(tolerance), maxIterations(maxIterations){
     state.iteration = 0;
     state.x = initialGuess;
     state.fx = function->evaluate(initialGuess);
@@ -19,9 +20,12 @@ void NewtonMethod::step() {
     double fx = function->evaluate(x);
     double dfx = function->derivative(x);
 
-    if (std::abs(dfx) < 1e-10) {
+    if (std::abs(dfx) < 1e-12)
+    {
+        state.error = tolerance;
         return;
     }
+
 
     double next_x = x - fx / dfx;
 
@@ -30,7 +34,7 @@ void NewtonMethod::step() {
     state.x = next_x;
     state.fx = function->evaluate(next_x);
     state.derivative = function->derivative(next_x);
-    state.error = std::abs(state.fx);
+    state.error = std::abs(next_x - x);
 
     history.push_back(state);
 }
@@ -46,3 +50,4 @@ IterationData NewtonMethod::currentState() const {
 const std::vector<IterationData>& NewtonMethod::getHistory() const {
     return history;
 }
+

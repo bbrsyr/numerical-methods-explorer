@@ -2,6 +2,8 @@
 
 
 #include <QMainWindow>
+#include "../include/PlotWidget.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +19,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    PlotWidget* plotWidget;
+
+private slots:
+    void on_plotButton_clicked();
 };
 

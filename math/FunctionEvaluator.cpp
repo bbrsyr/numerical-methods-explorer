@@ -10,8 +10,9 @@ bool FunctionEvaluator::setExpression(const std::string& expr) {
         parser.SetExpr(expr);
         return true;
 
-    } catch (...) {
+    } catch (mu::Parser::exception_type& e) {
 
+        std::cerr << e.GetMsg() << std::endl;
         return false;
 
     }
@@ -23,7 +24,6 @@ double FunctionEvaluator::evaluate(double x) {
 }
 
 double FunctionEvaluator::derivative(double x) {
-    double h = 1e-6;
 
     return (evaluate(x + h) - evaluate(x - h)) / (2 * h);
 }

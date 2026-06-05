@@ -31,7 +31,6 @@ void GradientDescent::step() {
 
     state.x = next_x;
     state.fx = function->evaluate(next_x);
-    state.derivative = function->derivative(next_x);
     state.error = std::abs(state.derivative);
 
     history.push_back(state);

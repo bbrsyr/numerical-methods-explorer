@@ -24,42 +24,40 @@ int main(int argc, char *argv[])
         }
     }
 
-    FunctionEvaluator evaluator;
+    FunctionEvaluator* function = new FunctionEvaluator();
+    function->setExpression("x^2 - x - 2");
 
-    evaluator.setExpression("x*x - 2");
+    NewtonMethod newt(function, 5);
+    PlotWidget* plot = new PlotWidget();
 
-    NewtonMethod newt(&evaluator, 1);
+    plot->plotFunction(*function, -2, 6, 0.01);
 
-    GradientDescent gd(&evaluator, 1.5);
 
-    std::cout << std::endl << "Newton's Method" << std::endl;
-
-    while(!newt.converged()) {
+    while (!newt.converged()) {
         newt.step();
 
-        auto state = newt.currentState();
+        // auto state = newt.currentState();
 
-        std::cout << "Iteration: " << state.iteration
-                  << "  x: " << state.x
-                  << "  f(x): " <<state.fx
-                  << "  Error: "<<state.error << std::endl;
-
+        // std::cout << "Iteration: " << state.iteration << " ";
+        // std::cout << "x: " << state.x << " ";
+        // std::cout << "dfx: " << state.derivative << " ";
+        // std::cout << "Error: " << state.error << std::endl;
     }
 
-    std::cout << std::endl << "Gradient Descent" << std::endl;
-
-    while(!gd.converged()) {
-        gd.step();
-
-        auto state = gd.currentState();
-
-        std::cout << "Iteration: " << state.iteration
-                  << "  x: " << state.x
-                  << "  f(x): " <<state.fx
-                  << "  Error: "<<state.error << std::endl;
+    for (const auto& step : newt.getHistory()) {
+        std::cout << step.iteration << " "
+                  << step.x << " "
+                  << step.fx << " "
+                  << std::endl;
     }
 
-    MainWindow w;
-    w.show();
-    return QCoreApplication::exec();
+    plot->plotHistory(newt.getHistory());
+
+    plot->plotNewtonSteps(newt.getHistory());
+
+    plot->show();
+
+    //MainWindow w;
+    //w.show();
+    return a.exec();
 }

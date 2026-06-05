@@ -29,7 +29,9 @@ public:
 
     Mat transpose() const;
     static Mat identity(size_t n);
-    double determinant() const;
-    Mat inverse() const;
+    // double determinant() const; TO-DO
+    // Mat inverse() const; TO-DO
+
+    Vec solve(const Vec& v);
 
 };

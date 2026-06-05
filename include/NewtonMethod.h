@@ -3,10 +3,11 @@
 
 #include "NumericalMethod.h"
 #include "FunctionEvaluator.h"
+#include "../include/PlotWidget.h"
 
 class NewtonMethod : public NumericalMethod{
 private:
-    std::unique_ptr<FunctionEvaluator> function;
+    FunctionEvaluator* function;
 
     IterationData state;
 
@@ -17,7 +18,7 @@ private:
     std::vector<IterationData> history;
 
 public:
-    NewtonMethod(FunctionEvaluator* function, double initialGuess, double tolerance = 1e-6);
+    NewtonMethod(FunctionEvaluator* function, double initialGuess, double tolerance = 1e-6, int maxIterations = 100);
 
     void step() override;
 

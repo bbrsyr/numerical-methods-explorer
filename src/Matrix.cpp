@@ -133,3 +133,66 @@ Mat Mat::identity(size_t n) {
     }
     return result;
 }
+
+Vec Mat::solve(const Vec& v) {
+    Mat A = *this;
+    Vec rhs = v;
+    size_t n = rows();
+
+    for (size_t k = 0; k < n; k++) {
+        for (size_t i = k + 1; i < n; i++) {
+
+            double factor = A[i][k] / A[k][k];
+
+            for (size_t j = k; j < n; j++) {
+                A[i][j] -= factor * rhs[k];
+            }
+
+            rhs[i] -= factor * rhs[k];
+        }
+    }
+
+    std::vector<double> x(n);
+
+    for (size_t i = n - 1; i >= 0; i--) {
+        double sum = 0;
+
+        for (size_t j = i + 1; j < n; j++) {
+            sum += A[i][j] * x[j];
+        }
+
+        x[i] = (rhs[i] - sum) / A[i][i];
+    }
+    return Vec(x);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,6 +32,8 @@ qt_add_executable(NumericalMethodsExplorer
     src/Matrix.cpp
 
 
+
+
 )
 
 add_subdirectory(external/muparser)
