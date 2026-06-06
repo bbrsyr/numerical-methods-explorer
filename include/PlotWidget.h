@@ -18,6 +18,11 @@ public :
 
     void plotHistory(const std::vector<IterationData>& history);
 
-    void plotNewtonSteps(const std::vector<IterationData>& history);
+    void plotNewtonStep(const std::vector<IterationData>& history, int iteration);
+
+    void plotNewtonSteps(const std::vector<IterationData>& history, int currentIteration);
+
+    void clear();
+
 };
 

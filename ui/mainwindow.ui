@@ -14,30 +14,64 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QPushButton" name="previousButton">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>400</x>
       <y>20</y>
-      <width>571</width>
-      <height>501</height>
+      <width>100</width>
+      <height>32</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLineEdit" name="FunctionInputLineEdit"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="plotButton">
-       <property name="text">
-        <string>Plot</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QWidget" name="plotContainer" native="true"/>
-     </item>
-    </layout>
+    <property name="text">
+     <string>&lt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="nextButton">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>20</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="plotButton">
+    <property name="geometry">
+     <rect>
+      <x>121</x>
+      <y>46</y>
+      <width>54</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Plot</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="plotContainer" native="true">
+    <property name="geometry">
+     <rect>
+      <x>121</x>
+      <y>84</y>
+      <width>569</width>
+      <height>436</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="FunctionInputLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>121</x>
+      <y>21</y>
+      <width>125</width>
+      <height>21</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

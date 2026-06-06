@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 
     plot->plotHistory(newt.getHistory());
 
-    plot->plotNewtonSteps(newt.getHistory());
+    plot->plotNewtonSteps(newt.getHistory(), newt.currentState().iteration);
 
     plot->show();
 
